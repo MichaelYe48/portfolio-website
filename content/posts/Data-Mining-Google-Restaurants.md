@@ -59,7 +59,7 @@ plt.show()
 
 
     
-![jpg](/images/graph.jpg)
+![jpg](/static/images/graph.jpg)
 
 **Average rating score**
 
