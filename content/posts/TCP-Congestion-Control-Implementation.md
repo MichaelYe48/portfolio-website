@@ -36,7 +36,7 @@ On the receiving side, I implemented `handle_incoming_frames()` which drops corr
 The two main tools I used for this project was Valgrind and printing to the command line. Valgrind was mostly used to correct mistakes that occurred when allocating memory for strings. Printing to the command line greatly helped me figure out errors in my circular array used to store buffered frames.
 
 ## Output
-![CC](/static/images/cc.jpg)
+![CC](../../images/cc.jpg)
 **Key**
 - Rtt: *Round Trip Time*
 - ack_received: *# of acks received*

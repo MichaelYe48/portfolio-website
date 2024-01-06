@@ -14,7 +14,7 @@ draft: false
 In the project, I designed and implemented a router on a static network topology to process raw Ethernet frames. To emulate a multi-router topology on my laptop, I used [Mininet](https://mininet.org/) which provided the routers, servers and other clients used in the network. The router specifically handled ARP requests and replies (updating the router's forwarding table with IP/MAC mappings), IP packets (with additional functionality to detect TCP/UDP for traceroute support), ICMP packets (requests,replies, and messages for Destination net, host, and port unreachable). After implementing everything above, my router can successfully handle Pings, Traceroutes, and file downloads using HTTP.
 
 ## Sample Network Topology
-![topology](/static/images/topology.jpg)
+![topology](../../images/topology.jpg)
 
 ## Process
 
