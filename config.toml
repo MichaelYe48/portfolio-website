@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://example.org/"
 title = "Michael's Portfolio"
 # for smart copyright line, leave this blank and check [params.copyright]
 copyright = ""
@@ -127,7 +127,7 @@ page = "/:slug/"
 name = "Repo"
 weight = 100
 identifier = "repository"
-url = ""
+url = "https://github.com/MichaelYe48/portfolio-website"
 [[menu.main]]
 name = 'Posts'
 pageRef = '/posts'
