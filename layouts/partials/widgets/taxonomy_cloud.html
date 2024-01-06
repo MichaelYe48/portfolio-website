@@ -1,0 +1,31 @@
+{{- $defaultConfig := .Site.Data.config.default.widgets.taxonomy_cloud -}}
+{{- $configData := ( or .Site.Data.config.widgets.taxonomy_cloud $defaultConfig ) -}}
+{{- $lang := .Site.Language.Lang -}}
+{{- $config := ( ( index $configData $lang ) | default $configData ) -}}
+
+{{- $shuffle := ( $config.shuffle | default false ) -}}
+{{- $taxonomy1 := ( $config.taxonomy | default "tags" ) -}}
+{{- $taxonomyData1 := ( .Site.GetPage $taxonomy1 ).Data -}}
+{{- $taxonomySingular1 := $taxonomyData1.Singular -}}
+
+{{- $taxonomy2 := (default "categories" ) -}}
+{{- $taxonomyData2 := ( .Site.GetPage $taxonomy2 ).Data -}}
+{{- $taxonomySingular2 := $taxonomyData2.Singular -}}
+
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <h4 class='title widget-title'>
+    {{- (default ( i18n $taxonomySingular2 2 ) ) -}}
+  </h4>
+  </header>
+
+  {{ partial "extras/taxonomy_cloud" ( dict "Taxonomy" $taxonomy2 "Shuffle" $shuffle "Scope" . ) }}
+  
+  <header>
+    <h4 class='title widget-title'>
+      {{- ( $config.title | default ( i18n $taxonomySingular1 2 ) ) -}}
+    </h4>
+  </header>
+
+  {{ partial "extras/taxonomy_cloud" ( dict "Taxonomy" $taxonomy1 "Shuffle" $shuffle "Scope" . ) }}
+
+</section>
