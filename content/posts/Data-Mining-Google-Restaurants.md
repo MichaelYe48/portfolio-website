@@ -1,6 +1,6 @@
 ---
 date: "2023-12-28T17:31:52-08:00"
-title: "Data Mining Google Restaurants"
+title: "Text Mining Google Restaurants"
 authors: ["michaelye"]
 categories: 
   - AI
@@ -10,7 +10,7 @@ draft: false
 ---
 
 ## Abstract
-This project attempts to predict an arbitrary customer’s star rating of a restaurant from the provided Google Restaurants Dataset, specifically from the filtered subset dataset. Following an exploratory analysis of the data, we decided that the best approach to predicting the star ratings would be through text mining utilizing linear regression. Our methodology involved multiple experiments on the training set to determine the optimal number of words to include in our feature vector. To enhance the predictive capabilities of our model, we conducted operations on the predicted values of our valid set, including clipping to minimum and maximum values of the star ratings, as well as rounding, thereby refining our predictions against the baseline. Notably, our investigation revealed that the leftward skewness and non-Gaussian distribution of the star ratings graph resulted in the most negatively weighted words possessing greater magnitudes than their positively weighted counterparts in the linear regression model's theta coefficients.
+This project attempts to predict an arbitrary customer’s star rating of a restaurant from the provided Google Restaurants Dataset, specifically from the filtered subset dataset. Given the text-centric nature of our dataset, we decided that the best approach to predicting the star ratings would be through text mining utilizing linear regression. Our methodology involved multiple experiments on the training set to determine the optimal number of words to include in our feature vector. To enhance the predictive capabilities of our model, we conducted operations on the predicted values of our valid set, including clipping to minimum and maximum values of the star ratings, as well as rounding, thereby refining our predictions against the baseline. Notably, our investigation revealed that the leftward skewness and non-Gaussian distribution of the star ratings graph resulted in the most negatively weighted words possessing greater magnitudes than their positively weighted counterparts in the linear regression model's theta coefficients.
 
 Dataset found here: [Google Restaurants Dataset](https://drive.google.com/drive/folders/1lMyaUW8VgXEojpjiMMrt-VC5uPeZ3al0)[^1]
 
@@ -19,12 +19,12 @@ Dataset found here: [Google Restaurants Dataset](https://drive.google.com/drive/
 
 ```python
 import json
-import statistics
 import string
-import math
 from collections import defaultdict
 from sklearn import linear_model
 from matplotlib import pyplot as plt
+import pandas as pd
+from tabulate import tabulate
 from sklearn.metrics import mean_absolute_error
 ```
 
@@ -53,13 +53,22 @@ len(trainSet)
 
 ```python
 ratingsList = [d['rating'] for d in trainSet]
-plt.hist(ratingsList, bins=range(1,7))
+numOfStars = defaultdict(int)
+for d in trainSet:
+    numOfStars[d['rating']] += 1
+    
+plt.bar(list(numOfStars.keys()), list(numOfStars.values()))
+plt.title('Review Star Distribution')
+plt.xlabel('Number of Stars')
+plt.ylabel('Number of Reviews')
 plt.show()
 ```
 
 
     
-![jpg](../../images/graph.jpg)
+![png](../../images/graph.png)
+    
+
 
 **Average rating score**
 
@@ -185,7 +194,6 @@ y = [d['rating'] for d in trainSet]
 # Regularized regression
 model = linear_model.Ridge(1.0, fit_intercept=False)
 model.fit(X, y)
-
 xVal, yVal = [feature(d) for d in valSet], [d['rating'] for d in valSet]
 predVal = model.predict(xVal)
 
@@ -196,7 +204,7 @@ for i in range(len(predVal)):
 
 
 MAE = mean_absolute_error(yVal, predVal)
-print(MAE)
+print("Valid MAE: ", str(MAE))
 
 xTest, yTest = [feature(d) for d in testSet], [d['rating'] for d in testSet]
 predTest = model.predict(xTest)
@@ -207,11 +215,11 @@ for i in range(len(predTest)):
     else: predTest[i] = round(predTest[i])
 
 MAE = mean_absolute_error(yTest, predTest)
-print(MAE)
+print("Test MAE: ", str(MAE))
 ```
 
-    0.4778084714548803
-    0.4667271901951884
+    Valid MAE:  0.4778084714548803
+    Test MAE:  0.4667271901951884
 
 
 
@@ -231,15 +239,84 @@ print("baseline: ", baseline)
 theta = model.coef_
 wordsWeight = [(theta[i], reviewWords[i]) for i in range(len(reviewWords))]
 wordsWeight.sort()
-print("bottom weighted words: \n", wordsWeight[:10])
+table = wordsWeight[:15]
+print("Bottom Weighted Words")
+print(tabulate(table, headers=('weight', 'word'), tablefmt='fancy_grid'))
 wordsWeight.sort(reverse=True)
-print("top weighted words: \n", wordsWeight[:10])
+table = wordsWeight[:15]
+print("Top Weighted Words")
+print(tabulate(table, headers=('weight', 'word'), tablefmt='fancy_grid'))
 ```
 
-    bottom weighted words: 
-     [(-1.2735708281612568, 'disgusting'), (-1.2115910501937235, 'worst'), (-1.0023830625127426, 'horrible'), (-0.9583125651584654, 'awful'), (-0.8620874326606889, 'edible'), (-0.8337060994392538, 'mediocre'), (-0.806961207216105, 'gross'), (-0.7694946716525985, 'tasteless'), (-0.7620199441778084, 'terrible'), (-0.7223632146993668, 'sent')]
-    top weighted words: 
-     [(0.5248876480200869, 'ends'), (0.43378658709888424, 'vieja'), (0.3970631752421742, 'monte'), (0.3858133794622673, 'frills'), (0.37665764295895354, 'realized'), (0.3708498524411019, 'disappoint'), (0.3649667747781793, 'complaints'), (0.35737902898891843, 'behind'), (0.3504065496321682, 'exquisite'), (0.33754077403515237, 'phenomenal')]
+    Bottom Weighted Words
+    ╒═══════════╤════════════╕
+    │    weight │ word       │
+    ╞═══════════╪════════════╡
+    │ -1.27357  │ disgusting │
+    ├───────────┼────────────┤
+    │ -1.21159  │ worst      │
+    ├───────────┼────────────┤
+    │ -1.00238  │ horrible   │
+    ├───────────┼────────────┤
+    │ -0.958313 │ awful      │
+    ├───────────┼────────────┤
+    │ -0.862087 │ edible     │
+    ├───────────┼────────────┤
+    │ -0.833706 │ mediocre   │
+    ├───────────┼────────────┤
+    │ -0.806961 │ gross      │
+    ├───────────┼────────────┤
+    │ -0.769495 │ tasteless  │
+    ├───────────┼────────────┤
+    │ -0.76202  │ terrible   │
+    ├───────────┼────────────┤
+    │ -0.722363 │ sent       │
+    ├───────────┼────────────┤
+    │ -0.722222 │ stale      │
+    ├───────────┼────────────┤
+    │ -0.690482 │ burned     │
+    ├───────────┼────────────┤
+    │ -0.689473 │ flavorless │
+    ├───────────┼────────────┤
+    │ -0.635109 │ supposed   │
+    ├───────────┼────────────┤
+    │ -0.617519 │ overpriced │
+    ╘═══════════╧════════════╛
+    Top Weighted Words
+    ╒══════════╤═════════════╕
+    │   weight │ word        │
+    ╞══════════╪═════════════╡
+    │ 0.524888 │ ends        │
+    ├──────────┼─────────────┤
+    │ 0.433787 │ vieja       │
+    ├──────────┼─────────────┤
+    │ 0.397063 │ monte       │
+    ├──────────┼─────────────┤
+    │ 0.385813 │ frills      │
+    ├──────────┼─────────────┤
+    │ 0.376658 │ realized    │
+    ├──────────┼─────────────┤
+    │ 0.37085  │ disappoint  │
+    ├──────────┼─────────────┤
+    │ 0.364967 │ complaints  │
+    ├──────────┼─────────────┤
+    │ 0.357379 │ behind      │
+    ├──────────┼─────────────┤
+    │ 0.350407 │ exquisite   │
+    ├──────────┼─────────────┤
+    │ 0.337541 │ phenomenal  │
+    ├──────────┼─────────────┤
+    │ 0.311489 │ exceptional │
+    ├──────────┼─────────────┤
+    │ 0.303659 │ purple      │
+    ├──────────┼─────────────┤
+    │ 0.297967 │ cha         │
+    ├──────────┼─────────────┤
+    │ 0.295679 │ individual  │
+    ├──────────┼─────────────┤
+    │ 0.290574 │ dim         │
+    ╘══════════╧═════════════╛
+
 
 
 
