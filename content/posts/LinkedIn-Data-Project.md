@@ -46,7 +46,7 @@ sns.heatmap(plotData.corr(), annot = True, vmin=-1, vmax=1, center= 0, ax = ax)
 
 
     
-![png](output_4_1.png)
+![png](../../images/heatmapLi.png)
     
 
 
@@ -74,7 +74,7 @@ sns.pairplot(plotData.sample(1000), hue='bigTech', diag_kind='kde')
 
 
     
-![png](output_6_1.png)
+![png](../../images/pairplotLi.png)
     
 
 
