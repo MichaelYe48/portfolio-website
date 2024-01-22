@@ -320,7 +320,7 @@ print(tabulate(table, headers=('weight', 'word'), tablefmt='fancy_grid'))
 
 
 
-
+This project was mainly based on a CSE 158 (Recommender Systems and Web-Mining) programming assignment taught by Professor Julian McAuley.
 
 [^1]: Personalized Showcases: Generating Multi-Modal Explanations for Recommendations
 An Yan, Zhankui He, Jiacheng Li, Tianyang Zhang, Julian Mcauley

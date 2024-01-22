@@ -1,12 +1,12 @@
 ---
 date: "2024-01-22T11:22:45-08:00"
-title: "LinkedIn-Data-Project"
+title: "LinkedIn Data Project"
 authors: ['michaelye']
 categories:
   - AI
 tags:
   - Python
-draft: false
+draft: true
 ---
 This is a work-in-progress project where we will build a model that predicts whether an individual on LinkedIn works at a top 15 tech company (by market cap) based on their LinkedIn profile. Our dataset[^1] contains 10,000 LinkedIn profiles from Australian users, and we will only use the profile data from the dataset for the purposes of this analysis. So far, we have only conducted preliminary data analysis on the dataset. 
 
