@@ -22,6 +22,13 @@ This project was split into two parts:
 - Implement simple routing (no subnetting, ARP caching)
 - Implement subnet routing, ARP caching, tracerroute support
 
+### Implementation
+Implementing the router was initially rather straightforward. Most of the coding was mostly just determining what type of packet the router received, and then taking the appropriate decision. After creating a rough outline of my router (similar to the code below), I began filling in the details. 
+
+To make my code efficient, I employed various techniques to keep the number of new packets malloc'd to a minimum. This included cannibalizing some of the packets the router received and simply changing the values in the correct fields. For example, when sending back out an ARP reply, the router would take the ARP request and change the target and source IP and MAC addresses to the appropriate values. 
+
+Implementing subnet was relatively simple with the main portion of the router completed, with the main nuance being that the router now had to recursively search up the forwarding interface from the routing table.
+
 ### Debugging
 The main issues I came across mostly boiled down to Network Endianness vs Host Endianness mix-ups and incorrect fields stemming from my code incorrectly cannibalizing packets.
 
