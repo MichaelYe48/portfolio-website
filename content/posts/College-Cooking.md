@@ -6,7 +6,7 @@ categories:
   - Misc
 tags:
   - Food
-draft: false
+draft: true
 ---
 I began learning how to cook during college out of necessity, but over time, I have grown to enjoy the culinary process. Here, you can observe my journey in cooking, capturing the progression (or lack thereof) in my skills and dishes.
 

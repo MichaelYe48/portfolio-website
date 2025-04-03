@@ -6,7 +6,7 @@ categories:
   - AI
 tags:
   - Python
-draft: false
+draft: true
 ---
 In this project, we are exploring a [car dataset](https://archive.ics.uci.edu/ml/datasets/auto+mpg) to analyze fuel efficiencies of cars with various characteristics and origins.
 
