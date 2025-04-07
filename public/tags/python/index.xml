@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Michael&#39;s Portfolio</title>
+    <link>http://localhost:1313/portfolio-website/tags/python/</link>
+    <description>Recent content in Python on Michael&#39;s Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Apr 2025 14:00:54 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/portfolio-website/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompt Injection Exploits on Browser Use</title>
+      <link>http://localhost:1313/portfolio-website/posts/browser-use/</link>
+      <pubDate>Thu, 03 Apr 2025 14:00:54 -0800</pubDate>
+      <guid>http://localhost:1313/portfolio-website/posts/browser-use/</guid>
+      <description>&lt;h1 id=&#34;prompt-injection-exploits-on-browser-use-agent&#34;&gt;Prompt Injection Exploits on Browser Use Agent&lt;/h1&gt;&#xA;&lt;p&gt;As large language models (LLMs) are increasingly embedded in our digital workflows—from chatbots to browser automation—a new vulnerability is emerging. Browser agents can now perform tasks such as reading web pages, clicking links, and even handling sensitive data with human-like precision. But with great power comes great responsibility, and our recent research reveals that these agents are susceptible to prompt injection attacks that could lead to severe security breaches.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

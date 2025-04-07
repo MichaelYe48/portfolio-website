@@ -1,13 +1,14 @@
 ---
 date: "2025-04-03T14:00:54-08:00"
 title: "Prompt Injection Exploits on Browser Use"
-authors: ['michaelye', 'colin', 'zimo']
+authors: ['michaelye']
 categories:
  - AI
 tags:
  - Python
 draft: false  
 ---
+
 # Prompt Injection Exploits on Browser Use Agent
 
 

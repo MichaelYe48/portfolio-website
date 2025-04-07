@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Michael&#39;s Portfolio</title>
+    <link>http://localhost:1313/portfolio-website/</link>
+    <description>Recent content in Home on Michael&#39;s Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Apr 2025 14:00:54 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/portfolio-website/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/portfolio-website/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio-website/about/</guid>
+      <description>&lt;p&gt;Michael is a fourth year BS/MS student studying Computer Science at the University of California, San Diego. This summer he will join Amazon as a Software Development Engineer Intern.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prompt Injection Exploits on Browser Use</title>
+      <link>http://localhost:1313/portfolio-website/posts/browser-use/</link>
+      <pubDate>Thu, 03 Apr 2025 14:00:54 -0800</pubDate>
+      <guid>http://localhost:1313/portfolio-website/posts/browser-use/</guid>
+      <description>&lt;h1 id=&#34;prompt-injection-exploits-on-browser-use-agent&#34;&gt;Prompt Injection Exploits on Browser Use Agent&lt;/h1&gt;&#xA;&lt;p&gt;As large language models (LLMs) are increasingly embedded in our digital workflows—from chatbots to browser automation—a new vulnerability is emerging. Browser agents can now perform tasks such as reading web pages, clicking links, and even handling sensitive data with human-like precision. But with great power comes great responsibility, and our recent research reveals that these agents are susceptible to prompt injection attacks that could lead to severe security breaches.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Custom Router</title>
+      <link>http://localhost:1313/portfolio-website/posts/custom-router/</link>
+      <pubDate>Fri, 29 Dec 2023 10:21:43 -0800</pubDate>
+      <guid>http://localhost:1313/portfolio-website/posts/custom-router/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;In the project, I designed and implemented a router on a static network topology to process raw Ethernet frames. To emulate a multi-router topology on my laptop, I used &lt;a href=&#34;https://mininet.org/&#34;&gt;Mininet&lt;/a&gt; which provided the routers, servers and other clients used in the network. The router specifically handled ARP requests and replies (updating the router&amp;rsquo;s forwarding table with IP/MAC mappings), IP packets (with additional functionality to detect TCP/UDP for traceroute support), ICMP packets (requests,replies, and messages for Destination net, host, and port unreachable). After implementing everything above, my router can successfully handle Pings, Traceroutes, and file downloads using HTTP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>http://localhost:1313/portfolio-website/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio-website/search/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

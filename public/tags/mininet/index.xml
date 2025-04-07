@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mininet on Michael&#39;s Portfolio</title>
+    <link>http://localhost:1313/portfolio-website/tags/mininet/</link>
+    <description>Recent content in Mininet on Michael&#39;s Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Dec 2023 10:21:43 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/portfolio-website/tags/mininet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Router</title>
+      <link>http://localhost:1313/portfolio-website/posts/custom-router/</link>
+      <pubDate>Fri, 29 Dec 2023 10:21:43 -0800</pubDate>
+      <guid>http://localhost:1313/portfolio-website/posts/custom-router/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;In the project, I designed and implemented a router on a static network topology to process raw Ethernet frames. To emulate a multi-router topology on my laptop, I used &lt;a href=&#34;https://mininet.org/&#34;&gt;Mininet&lt;/a&gt; which provided the routers, servers and other clients used in the network. The router specifically handled ARP requests and replies (updating the router&amp;rsquo;s forwarding table with IP/MAC mappings), IP packets (with additional functionality to detect TCP/UDP for traceroute support), ICMP packets (requests,replies, and messages for Destination net, host, and port unreachable). After implementing everything above, my router can successfully handle Pings, Traceroutes, and file downloads using HTTP.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
