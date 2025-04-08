@@ -80,7 +80,7 @@ Our experiments focused on two main types:
 - **Scenario: Google Docs Comments Injection**  
   By embedding malicious text within Google Docs comment sections, the agent was tricked into accessing and forwarding sensitive email data.
   ![](../../static/videos/google_docs_attack.mp4)
-  <video src="../../static/videos/google_docs_attack.mp4" width="320" height="240" controls></video>
+  {{ < youtube bwfgdBH47cc >}}
   
 
 
@@ -106,6 +106,7 @@ Our attacks were not confined to a single website. By exploiting the same prompt
 
 
 Once the injected prompt is merged with the agent’s original workflow, the LLM’s safeguards are bypassed, and the agent follows the unintended command—resulting in widespread data leakage across these high-value platforms.
+
 ---
 
 
