@@ -9,11 +9,7 @@ tags:
 draft: false  
 ---
 
-# Prompt Injection Exploits on Browser Use Agent
-
-
-As large language models (LLMs) are increasingly embedded in our digital workflows—from chatbots to browser automation—a new vulnerability is emerging. Browser agents can now perform tasks such as reading web pages, clicking links, and even handling sensitive data with human-like precision. But with great power comes great responsibility, and our recent research reveals that these agents are susceptible to prompt injection attacks that could lead to severe security breaches.
-
+As large language models (LLMs) become increasingly embedded in our everyday lives, we need to gain awareness of their vulnerabilities. In particular, our project focuses on browser agents that use LLMs to perform tasks such as reading web pages, clicking links, and executing browser tasks. We will show in our research that these agents are susceptible to prompt injection attacks that could lead to severe security breaches.
 
 ---
 
@@ -47,7 +43,7 @@ However, these same capabilities mean that any input—whether from a legitimate
 ## The Anatomy of a Prompt Injection Attack
 
 
-Prompt injection attacks leverage the LLM's inability to fully differentiate between legitimate user instructions and maliciously injected prompts. 
+Prompt injection attacks exploits the LLM's inability to fully differentiate between legitimate user instructions and maliciously injected prompts. 
 
 
 ### Threat Model
@@ -78,7 +74,7 @@ Our experiments focused on two main types:
 
 
 - **Scenario: Google Docs Comments Injection**  
-  By embedding malicious text within Google Docs comment sections, the agent was tricked into accessing and forwarding sensitive email data.
+  By embedding malicious text within Google Docs comment sections, the agent was tricked into accessing and leaking sensitive email data.
   {{< youtube id="bwfgdBH47cc" title="Google Docs Attack" >}}
   
 
@@ -87,10 +83,10 @@ Our experiments focused on two main types:
 
 
 - **Scenario: Instagram Image Injection**  
-  In this experiment, an adversarial image was embedded with hidden instructions. When the agent processed the image, it altered file access permissions on a Google Drive folder and automatically emailed the public link to an attacker-controlled address.  
+  In this experiment, the adversary posts on Instagram an image containing hidden instructions. When the agent processed the image, it altered file access permissions on the user's Google Drive folder and automatically emailed the public link to an attacker-controlled address.  
 
 
-The experiments highlighted that, regardless of the medium (text or image), once the malicious prompt is merged with the agent’s original workflow, the LLM’s safeguards are bypassed, and the agent follows the unintended command.
+The experiments highlighted that, regardless of the medium (text or image), once the agent processes the malicious prompt, the LLM’s safeguards are bypassed, and the agent follows the unintended command faithfully.
 
 
 ---
@@ -104,7 +100,7 @@ Our attacks were not confined to a single website. By exploiting the same prompt
 - **Gmail:** Breaching sensitive email content.
 
 
-Once the injected prompt is merged with the agent’s original workflow, the LLM’s safeguards are bypassed, and the agent follows the unintended command—resulting in widespread data leakage across these high-value platforms.
+Once the injected prompt is merged with the agent’s original workflow, the LLM’s safeguards are bypassed, and the agent follows the unintended command—resulting in critical data leakage across these platforms.
 
 ---
 
@@ -112,7 +108,7 @@ Once the injected prompt is merged with the agent’s original workflow, the LLM
 ## Mitigation Strategies
 
 
-Our research doesn’t just expose vulnerabilities—it also highlights the urgent need for robust defenses. We propose a multi-layered security strategy:
+We want to highlight the urgent need for robust defenses by proposing a multi-layered security strategy based on our observations:
 
 
 - **Web-Level Defenses:**  
