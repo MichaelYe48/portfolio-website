@@ -17,7 +17,7 @@ As large language models (LLMs) become increasingly embedded in our everyday liv
 ## Introduction
 
 
-Modern browser automation frameworks like [**Browser Use**](https://browser-use.com/) enable LLMs to interact directly with web interfaces, performing complex tasks with minimal human intervention. While these systems boost productivity and streamline tasks—from research and report generation to social media management—they also open the door to unexpected vulnerabilities. Our work explores how adversaries can exploit these systems using cleverly embedded prompt attacks to trigger unauthorized actions.
+Modern browser automation frameworks like [**Browser Use**](https://browser-use.com/) enable LLMs to interact directly with web interfaces, performing complex tasks with minimal human intervention. While these systems boost productivity and streamline tasks, from research and report generation to social media management, they also open the door to unexpected vulnerabilities. Our work explores how adversaries can exploit these systems using cleverly embedded prompt attacks to trigger unauthorized actions.
 
 
 ---
@@ -63,7 +63,7 @@ Prompt injection attacks exploits the LLM's inability to fully differentiate bet
 
 
 
-Our experiments focused on two main types:
+## Attack Types
 
 
 ### Text-Based Injections
@@ -100,7 +100,7 @@ Our attacks were not confined to a single website. By exploiting the same prompt
 - **Gmail:** Breaching sensitive email content.
 
 
-Once the injected prompt is merged with the agent’s original workflow, the LLM’s safeguards are bypassed, and the agent follows the unintended command—resulting in critical data leakage across these platforms.
+Once the injected prompt is merged with the agent’s original workflow, the LLM’s safeguards are bypassed, and the agent follows the unintended command. This results in critical data leakage across these platforms.
 
 ---
 
@@ -129,7 +129,7 @@ We want to highlight the urgent need for robust defenses by proposing a multi-la
 ## Why This Matters
 
 
-The implications of our findings are significant. Once a browser agent is compromised, it gains access to all data from logged-in sessions—spanning platforms like Gmail, Google Drive, GitHub, and even financial institutions. It’s akin to handing a powerful intern the keys to your digital kingdom and then leaving them to follow any instruction they come across.
+The implications of our findings are significant. Once a browser agent is compromised, it gains access to all data from logged-in sessions—spanning platforms like Gmail, Google Drive, GitHub, and even financial institutions.
 
 
 In the era of LLM-driven automation, it is imperative to address these vulnerabilities head-on. Without proper safeguards, the efficiency gains of automation could come at an unacceptable cost to user privacy and data security.
