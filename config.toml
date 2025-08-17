@@ -1,3 +1,4 @@
+
 baseURL = "https://michaelye48.github.io/portfolio-website"
 title = "Michael's Portfolio"
 # for smart copyright line, leave this blank and check [params.copyright]
@@ -139,6 +140,8 @@ hrefTargetBlank = true
 [languages]
 # edit this block for your own language
 [languages.en]
-lang = "en"
 languageName = "English"
 weight = 1
+
+[languages.en.params]
+lang = "en"
